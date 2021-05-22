@@ -5,9 +5,10 @@
 	<title>Google</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" type="text/css" href="results.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
 </head>
 <body>
-	<div id="wrapper">
+	<div id="wrapper" v-bind:class="{ results: googleSearch.length > 0}">
 		<nawigacja>
     		<a href="#">Gmail</a>
       		<a href="#">Grafika</a>
@@ -19,7 +20,7 @@
       		<form><br><br>
       			<div class="form">
       				<img src="szukaj.png" class="szukaj">
-      				<input type="text" class="pole-tekstowe">
+      				<input v-model="googleSearch" type="text" class="pole-tekstowe">
       				<img src="mikrofon.png" class="mikrofon">
       				<input type="submit" class="przycisk" value="Szukaj w Google">
       				<input type="submit" class="przycisk" value="Szczęśliwy traf">
@@ -94,6 +95,15 @@
       		</div>
     	</stopka>
 	</div>
-
+	<script>
+		var app = new Vue(
+		{
+			el: '#wrapper',
+		  	data: 
+			{
+				googleSearch : ''
+		  	}
+		})
+	  </script>
 </body>
 </html>
