@@ -1,0 +1,78 @@
+#wrapper .results {
+    display: none;
+}
+#wrapper.results {
+    height: 100%;
+}
+
+#wrapper.results .results {
+    margin-bottom: 30px;
+    display: block;
+    font-family: arial,sans-serif;
+}
+
+#wrapper.results .sekcja {
+    flex-direction: row;
+	display: flex;
+}
+
+#wrapper.results .sekcja .google {
+	display: flex;
+    margin: 0px;
+    width: 200px;
+    height: 100px;
+	padding: 25px;
+}
+#wrapper.results .sekcja .przycisk {
+	display: none;
+}
+
+#wrapper.results .jezyk {
+    display: none
+}
+
+.results #linia{
+    color: rgb(189, 189, 189);
+    border-top:  rgb(189, 189, 189);
+
+}
+
+#wyszuliwanie_przyciski {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    margin-left: 180px;
+}
+
+#wyszuliwanie_przyciski li {
+    padding: 0px 10px 15px 20px;
+    color: gray;
+}
+
+#wyszuliwanie_przyciski #aktywny {
+    color: blue;
+}
+
+.wynik {
+    margin-left: 175px;
+}
+
+.wynik a {
+    font-size: 14px;
+    line-height: 14px;
+    color: rgb(26, 25, 25);
+}
+
+.wynik h2 {
+    margin-top: 7px;
+    margin-bottom: 10px;
+    line-height: 18px;
+    font-weight: normal;
+    font-size: 19px;
+    color: rgb(3, 5, 200);
+}
+
+.wynik p {
+    margin-bottom: 40px;
+    color: rgb(94, 94, 94);
+}
