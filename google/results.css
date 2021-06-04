@@ -76,3 +76,11 @@
     margin-bottom: 40px;
     color: rgb(94, 94, 94);
 }
+
+#wrapper .lista_miast {
+    display:none
+}
+
+#wrapper.results .lista_miast {
+    display: block;
+}

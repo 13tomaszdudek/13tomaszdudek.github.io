@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" type="text/css" href="results.css">
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+	<script src="cities.js"></script>
 </head>
 <body>
 	<div id="wrapper" v-bind:class="{ results: googleSearch.length > 0}">
@@ -21,6 +22,9 @@
       			<div class="form">
       				<img src="szukaj.png" class="szukaj">
       				<input v-model="googleSearch" type="text" class="pole-tekstowe">
+					  <div class="lista_miast" v-for="city in filteredCities" :key="city.name">
+						{{ city.name  }}
+					</div>
       				<img src="mikrofon.png" class="mikrofon">
       				<input type="submit" class="przycisk" value="Szukaj w Google">
       				<input type="submit" class="przycisk" value="Szczęśliwy traf">
@@ -101,9 +105,20 @@
 			el: '#wrapper',
 		  	data: 
 			{
-				googleSearch : ''
-		  	}
+				googleSearch : '',
+				cities: window.cities
+		  	},
+			computed: 
+			{
+            	filteredCities()
+				{
+                	return this.cities.filter((city) => 
+					{
+                    	return city.name.toLowerCase().includes(this.googleSearch.toLowerCase());
+                  	}).slice(0,10);
+              	}
+			}
 		})
-	  </script>
+	</script>
 </body>
 </html>
