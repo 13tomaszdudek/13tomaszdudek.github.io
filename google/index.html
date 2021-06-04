@@ -22,9 +22,9 @@
       			<div class="form">
       				<img src="szukaj.png" class="szukaj">
       				<input v-model="googleSearch" type="text" class="pole-tekstowe">
-					  <div class="lista_miast" v-for="city in filteredCities" :key="city.name">
-						{{ city.name  }}
-					</div>
+						<div class="lista_miast" v-for="city in filteredCities" :key="city.name">
+					  		<span v-html="zamien(city.name)"></span>
+						</div>
       				<img src="mikrofon.png" class="mikrofon">
       				<input type="submit" class="przycisk" value="Szukaj w Google">
       				<input type="submit" class="przycisk" value="Szczęśliwy traf">
@@ -117,7 +117,19 @@
                     	return city.name.toLowerCase().includes(this.googleSearch.toLowerCase());
                   	}).slice(0,10);
               	}
-			}
+			},
+			methods: {
+        		zamien: function(el)
+				{
+            	    wyniki =  el.match(RegExp(this.googleSearch, "gi"));
+            		podmienione  = '';
+            		wyniki.forEach(wynik => 
+					{
+                		podmienione = el.replace(RegExp(this.googleSearch, "gi"), `<span class="nobold">${el.match(RegExp(this.googleSearch, "gi"))[0]}</span>`);
+            		})
+            		return podmienione;
+        		},
+    		}
 		})
 	</script>
 </body>

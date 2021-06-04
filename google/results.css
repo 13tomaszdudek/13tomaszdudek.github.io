@@ -84,3 +84,16 @@
 #wrapper.results .lista_miast {
     display: block;
 }
+
+#wrapper.results span {
+    font-weight: bold;
+    display: flex;
+}
+
+#wrapper.results span.nobold {
+    font-weight: 100;
+    
+
+
+
+
